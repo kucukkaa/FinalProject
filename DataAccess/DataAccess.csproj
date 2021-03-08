@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\InMemory\" />
-    <Folder Include="Concrete\EntityFramwork\" />
+    <Folder Include="Concrete\EntityFramework\" />
   </ItemGroup>
 
   <ItemGroup>
