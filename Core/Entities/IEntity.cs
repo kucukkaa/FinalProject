@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Abstract
+namespace Core.Entities
 {
     //IEntity implemet eden bir class bir veritabanı tablosudur.
     
@@ -11,3 +11,4 @@ namespace Entities.Abstract
 
     }
 }
+ 
