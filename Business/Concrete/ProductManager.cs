@@ -28,6 +28,7 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
+        //[SecuredOperation("prodcut.add, admin")]
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
@@ -103,12 +104,12 @@ namespace Business.Concrete
 
         }
 
-        //private IResult CheckCategory()
+        //private IResult CheckIfCategoryLimitExceded()
         //{
-        //    var category = new CategoryManager(new EfCategoryDal()).GetAll().Count;
-        //    if (category>= 15)
+        //    var category = new CategoryManager(new EfCategoryDal()).GetAll().Data.Count;
+        //    if (category >= 15)
         //    {
-        //        return new ErrorResult(); 
+        //        return new ErrorResult(Messages.CategoryLimitExceded);
         //    }
         //    return new SuccessResult();
         //}
@@ -116,7 +117,7 @@ namespace Business.Concrete
         private IResult CheckIfCategoryLimitExceded()
         {
             var result = _categoryService.GetAll();
-            if (result.Data.Count>15)
+            if (result.Data.Count > 15)
             {
                 return new ErrorResult(Messages.CategoryLimitExceded);
             }
