@@ -45,6 +45,7 @@ namespace Business.Concrete
                
         }
 
+        [CacheAspect] //key, value
         public IDataResult<List<Product>> GetAll()
         {
             if (DateTime.Now.Hour == 1)
@@ -118,7 +119,7 @@ namespace Business.Concrete
         private IResult CheckIfCategoryLimitExceded()
         {
             var result = _categoryService.GetAll();
-            if (result.Data.Count > 15)
+            if (result.Data.Count > 20)
             {
                 return new ErrorResult(Messages.CategoryLimitExceded);
             }
